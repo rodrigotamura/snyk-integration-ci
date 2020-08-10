@@ -9,6 +9,9 @@ jobs:
   QG_WORKER_COMMAND_CREATOR:
     runs-on: ubuntu-latest
     name: CommandCreator - Worker Quality Gate
+    defaults:
+      run:
+        working-directory: ./
 
     steps:
       - name: Checkout
