@@ -1,0 +1,37 @@
+name: Dev deploy
+
+on: push
+
+env:
+  SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+
+jobs:
+  QG_WORKER_COMMAND_CREATOR:
+    runs-on: ubuntu-latest
+    name: CommandCreator - Worker Quality Gate
+    defaults:
+      run:
+        working-directory: ./
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12
+
+      - name: Npm Install
+        run: npm install
+
+      - name: Lint code
+        run: npm run lint
+
+      - name: Unit tests
+        run: npm run test
+
+      - name: Run Snyk to check for vulnerabilities
+        uses: snyk/actions/node@master
+        env:
+          SNYK_TOKEN: ${{ env.SNYK_TOKEN }}

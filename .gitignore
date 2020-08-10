@@ -1,0 +1,18 @@
+# Terraform
+.terraform
+*.tfvars
+terraform.tfstate
+terraform.tfstate.backup
+
+
+# Lambda
+infra/**/*.zip
+
+/**/**/node_modules
+**/.env
+
+# tests
+**/coverage
+**/coverageIntegration
+**/.vscode
+**/.env

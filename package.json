@@ -1,0 +1,25 @@
+{
+  "name": "snyk-integration-ci",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rodrigotamura/snyk-integration-ci.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rodrigotamura/snyk-integration-ci/issues"
+  },
+  "homepage": "https://github.com/rodrigotamura/snyk-integration-ci#readme",
+  "dependencies": {
+    "auth0": "^2.27.1",
+    "elliptic": "^6.5.3",
+    "jsrsasign": "^8.0.23",
+    "knex": "^0.21.4"
+  }
+}
