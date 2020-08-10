@@ -20,6 +20,19 @@
     "auth0": "^2.27.1",
     "elliptic": "^6.5.3",
     "jsrsasign": "^8.0.23",
-    "knex": "^0.21.4"
+    "knex": "^0.21.4",
+    "aws-sdk": "^2.724.0",
+    "eslint": "^7.2.0",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-config-prettier": "^6.10.0",
+    "eslint-plugin-import": "^2.21.2",
+    "eslint-plugin-jest": "^23.8.2",
+    "eslint-plugin-node": "^11.0.0",
+    "eslint-plugin-prettier": "^3.1.2",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
+    "knex": "^0.21.2",
+    "pg": "^8.3.0",
+    "prettier": "^1.19.1"
   }
 }
