@@ -8,7 +8,7 @@ terraform.tfstate.backup
 # Lambda
 infra/**/*.zip
 
-/**/**/node_modules
+**/**/node_modules
 **/.env
 
 # tests
