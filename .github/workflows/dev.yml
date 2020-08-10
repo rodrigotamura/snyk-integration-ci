@@ -27,7 +27,9 @@ jobs:
 
       - name: Run Snyk to check for vulnerabilities
         uses: snyk/actions/node@master
-        working-directory: ./lambda_1
+        defaults:
+          run:
+            working-directory: ./lambda_1
         env:
           SNYK_TOKEN: ${{ env.SNYK_TOKEN }}
 
