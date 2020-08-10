@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest -c jest.config.unit.js",
+    "lint": "eslint src"
   },
   "repository": {
     "type": "git",
@@ -31,6 +32,8 @@
     "eslint-plugin-prettier": "^3.1.2",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.1",
+    "jest": "^25.5.4",
+    "jest-json-schema": "^2.1.0",
     "knex": "^0.21.2",
     "pg": "^8.3.0",
     "prettier": "^1.19.1"
