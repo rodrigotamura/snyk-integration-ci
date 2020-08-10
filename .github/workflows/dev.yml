@@ -11,7 +11,7 @@ jobs:
     name: CommandCreator - Worker Quality Gate
     defaults:
       run:
-        working-directory: ./lambda_1
+        working-directory: ./lambda_1/
 
     steps:
       - name: Checkout
