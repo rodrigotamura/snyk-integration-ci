@@ -29,6 +29,8 @@ jobs:
         uses: snyk/actions/node@master
         env:
           SNYK_TOKEN: ${{ env.SNYK_TOKEN }}
+        with:
+          args: --file ./lambda_1/package.json
 
       - name: Lint code
         run: npm run lint
