@@ -11,7 +11,7 @@ jobs:
     name: CommandCreator - Worker Quality Gate
     defaults:
       run:
-        working-directory: ./lambda_1/
+        working-directory: ./lambda_1
 
     steps:
       - name: Checkout
@@ -27,9 +27,6 @@ jobs:
 
       - name: Run Snyk to check for vulnerabilities
         uses: snyk/actions/node@master
-        defaults:
-          run:
-            working-directory: ./lambda_1
         env:
           SNYK_TOKEN: ${{ env.SNYK_TOKEN }}
 
