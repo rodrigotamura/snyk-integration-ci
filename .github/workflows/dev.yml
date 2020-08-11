@@ -26,9 +26,13 @@ jobs:
         run: pwd && ls && npm install
 
       - name: Running NPM audit
-        uses: ybiquitous/npm-audit-fix-action@v2
-        with: 
+        uses: oke-py/npm-audit-action@v1.5.1
+        with:
           github_token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+          issue_assignees: npm_audit
+          issue_labels: vulnerability
+          dedupe_issues: true
+          working-directory: ./lambda_1
 
       - name: Run Snyk to check for vulnerabilities
         uses: snyk/actions/node@0.1.1
