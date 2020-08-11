@@ -32,7 +32,7 @@ jobs:
           issue_assignees: npm_audit
           issue_labels: vulnerability
           dedupe_issues: true
-          working-directory: ./lambda_1
+          working_directory: ./lambda_1
 
       - name: Run Snyk to check for vulnerabilities
         uses: snyk/actions/node@0.1.1
