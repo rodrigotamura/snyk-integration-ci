@@ -30,7 +30,7 @@ jobs:
         env:
           SNYK_TOKEN: ${{ env.SNYK_TOKEN }}
         with:
-          args: --file=./lambda_1/package.json
+          args: --all-projects
 
       - name: Lint code
         run: npm run lint
