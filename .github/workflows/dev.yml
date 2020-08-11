@@ -26,7 +26,7 @@ jobs:
         run: pwd && ls && npm install
 
       - name: Run Snyk to check for vulnerabilities
-        uses: snyk/actions/node@master
+        uses: snyk/actions/node@0.1.1
         env:
           SNYK_TOKEN: ${{ env.SNYK_TOKEN }}
         with:
