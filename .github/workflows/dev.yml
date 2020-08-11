@@ -31,11 +31,11 @@ jobs:
           github_token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
 
       - name: Run Snyk to check for vulnerabilities
-        uses: snyk/actions/node@master
+        uses: snyk/actions/node@0.1.1
         env:
           SNYK_TOKEN: ${{ env.SNYK_TOKEN }}
         with:
-          args: --file=./lambda_1/package.json
+          args: --all-projects
 
       - name: Lint code
         run: npm run lint

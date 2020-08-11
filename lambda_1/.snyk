@@ -1,0 +1,25 @@
+# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
+version: v1.14.1
+# ignores vulnerabilities until expiry date; change duration by modifying expiry date
+ignore:
+  'npm:ws:20160104':
+    - zombie > ws:
+        reason: 'No patch available! :D'
+        expires: '2020-09-10T16:10:09.408Z'
+  'npm:ws:20160624':
+    - zombie > ws:
+        reason: 'No patch available! :D'
+        expires: '2020-09-10T16:10:09.408Z'
+  'npm:ws:20160920':
+    - zombie > ws:
+        reason: 'No patch available! :D'
+        expires: '2020-09-10T16:10:09.408Z'
+  'npm:ws:20171108':
+    - zombie > ws:
+        reason: 'No patch available! :D'
+        expires: '2020-09-10T16:10:09.408Z'
+  'npm:mime:20170907':
+    - zombie > mime:
+        reason: 'No patch available! :D'
+        expires: '2020-09-10T16:10:09.409Z'
+patch: {}
