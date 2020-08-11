@@ -25,6 +25,11 @@ jobs:
       - name: Npm Install
         run: pwd && ls && npm install
 
+      - name: Running NPM audit
+        uses: ybiquitous/npm-audit-fix-action@v2
+        with: 
+          github_token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+
       - name: Run Snyk to check for vulnerabilities
         uses: snyk/actions/node@master
         env:
