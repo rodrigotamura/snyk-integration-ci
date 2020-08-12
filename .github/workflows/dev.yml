@@ -29,9 +29,8 @@ jobs:
         uses: oke-py/npm-audit-action@v1.5.1
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          issue_assignees: npm_audit
+          issue_assignees: rodrigo
           issue_labels: vulnerability
-          dedupe_issues: true
           working_directory: ./lambda_1
 
       - name: Run Snyk to check for vulnerabilities
