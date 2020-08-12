@@ -1,9 +1,7 @@
 name: Dev deploy
-
 on:
   schedule:
     - cron: '* * * * *'
-    
 jobs:
   QG_WORKER_COMMAND_CREATOR:
     runs-on: ubuntu-latest
@@ -11,11 +9,12 @@ jobs:
     defaults:
       run:
         working-directory: ./lambda_1
-    if: github.ref == 'refs/heads/master'
 
     steps:
       - name: Checkout
         uses: actions/checkout@v1
+        wiyth:
+          ref: master
 
       - name: Setup Node.js
         uses: actions/setup-node@v1
