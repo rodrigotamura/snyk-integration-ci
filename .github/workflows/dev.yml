@@ -24,10 +24,7 @@ jobs:
         run: pwd && ls && npm install
 
       - name: audit
-        uses: miyajan/npm-audit-pr@v1.0.4
-        with:
-          token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
-          npm-directory: ./lambda_1
+        run: npm audit
 
       - name: Unit tests
         run: echo "Passed!"
