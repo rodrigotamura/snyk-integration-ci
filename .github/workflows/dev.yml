@@ -1,14 +1,14 @@
 name: Dev deploy
 
-on: push
-
-env:
-  SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
-
+on:
+  schedule:
+    - cron: '* * * * *'
+    branches:
+      - master
 jobs:
   QG_WORKER_COMMAND_CREATOR:
     runs-on: ubuntu-latest
-    name: CommandCreator - Worker Quality Gate
+    name: Cron - Running Audit
     defaults:
       run:
         working-directory: ./lambda_1
@@ -30,16 +30,6 @@ jobs:
         with:
           token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
           npm-directory: ./lambda_1
-
-      - name: Run Snyk to check for vulnerabilities
-        uses: snyk/actions/node@master
-        env:
-          SNYK_TOKEN: ${{ env.SNYK_TOKEN }}
-        with:
-          args: --file=./lambda_1/package.json
-
-      - name: Lint code
-        run: npm run lint
 
       - name: Unit tests
         run: echo "Passed!"
