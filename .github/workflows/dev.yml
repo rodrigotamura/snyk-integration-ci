@@ -26,43 +26,9 @@ jobs:
         run: pwd && ls && npm install
 
       - name: audit
-        commands:
-          - set -o pipefail && npm audit --force 2>&1 | tee audit.log
-
-      - name: audit fix
-        commands:
-          - npm audit fix
-        when:
-          status:
-          - failure
-
-      - name: create_fix_pr
-        image: lnikell/github-hub:2.11.2
-        environment:
-          GITHUB_TOKEN:
-            from_secret: ${{ secrets.GITHUB_TOKEN }}
-        commands:
-          - git config --global user.email "audit@hotmail.com"
-          - git config --global user.name "BotAuditor"
-          - git checkout -b drone/npm-audit-fix-${github.run_id}
-          - git add package.json package-lock.json
-          - git commit -m 'npm audit fix'
-          - git push origin drone/npm-audit-fix-${github.run_id}
-          - hub pull-request -m "[Security] NPM Audit Fix" -m "$(cat audit.log | tail -2)" -m "WTF"
-        when:
-          status:
-          - failure
-
-      - name: slack_notification
-        image: plugins/slack
-        settings:
-          webhook: https://hooks.slack.com/services/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
-          template: >
-            NPN detected vulnerable packages at *{{repo.name}}* for *{{build.branch}}* branch. 
-            Report available by the link {{build.link}}
-        when:
-          status:
-          - failure
+        uses: miyajan/npm-audit-pr@v1.0.4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Lint code
         run: npm run lint
