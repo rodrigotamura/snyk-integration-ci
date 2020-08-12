@@ -28,13 +28,13 @@ jobs:
       - name: NPM Audit
         id: audit
         run: |
-          echo "::set-output name=body::$(npm audit)"
+          @output=(npm audit)
+          Write-Output "::set-output name=RESULT::$output"
 
       - name: Display Audit result
-        if: ${{ steps.audit.outputs.body }}
         run: |
           echo "Showing NPM Audit Results:"
-          echo ${{ steps.audit.outputs.body }}
+          echo ${{ steps.audit.outputs.RESULT }}
 
       - name: Run Snyk to check for vulnerabilities
         uses: snyk/actions/node@0.1.1
