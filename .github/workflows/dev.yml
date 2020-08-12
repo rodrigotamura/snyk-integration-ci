@@ -26,14 +26,10 @@ jobs:
         run: pwd && ls && npm install
 
       - name: Running NPM audit
-        uses: oke-py/npm-audit-action@v1.5.1
+        uses: miyajan/npm-audit-pr@v1.0.4
         with:
-          audit_level: moderate
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          issue_assignees: oke-py
-          issue_labels: vulnerability,test
-          dedupe_issues: true
-          working_directory: ./lambda_1
+          token: ${{ secrets.GITHUB_TOKEN }}
+          npm-directory: ./lambda_1
 
       - name: Run Snyk to check for vulnerabilities
         uses: snyk/actions/node@0.1.1
