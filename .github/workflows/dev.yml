@@ -1,7 +1,6 @@
 name: Dev Deploy
 on:
-  schedule:
-    - cron: '* * * * *'
+  push
 jobs:
   QG_WORKER_COMMAND_CREATOR:
     runs-on: ubuntu-latest
