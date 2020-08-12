@@ -21,9 +21,6 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 12
-      
-      - name: Cancelling WF
-        run: exit 1
 
       - name: Npm Install
         run: pwd && ls && npm install
@@ -31,7 +28,7 @@ jobs:
       - name: NPM Audit
         id: audit
         run: |
-          @output=(npm audit)
+          $output=(npm audit)
           Write-Output "::set-output name=RESULT::$output"
 
       - name: Display Audit result
