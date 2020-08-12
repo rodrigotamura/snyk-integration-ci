@@ -26,7 +26,15 @@ jobs:
         run: pwd && ls && npm install
 
       - name: NPM Audit
-        run: npm audit
+        id: audit
+        run: |
+          echo "::set-output name=body::$(npm audit)"
+
+      - name: Display Audit result
+        if ${{ steps.audit.outputs.body }}
+        run: |
+          echo "Showing NPM Audit Results:"
+          echo ${{ steps.audit.outputs.body }}
 
       - name: Run Snyk to check for vulnerabilities
         uses: snyk/actions/node@0.1.1
