@@ -31,7 +31,7 @@ jobs:
           echo "::set-output name=body::$(npm audit)"
 
       - name: Display Audit result
-        if ${{ steps.audit.outputs.body }}
+        if: ${{ steps.audit.outputs.body }}
         run: |
           echo "Showing NPM Audit Results:"
           echo ${{ steps.audit.outputs.body }}
