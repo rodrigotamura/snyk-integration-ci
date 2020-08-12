@@ -28,7 +28,7 @@ jobs:
       - name: audit
         uses: miyajan/npm-audit-pr@v1.0.4
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: t12vjh341v2g3v4h1jvg
           npm-directory: ./lambda_1
 
       - name: Lint code
