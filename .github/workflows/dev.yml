@@ -23,8 +23,13 @@ jobs:
       - name: Npm Install
         run: pwd && ls && npm install
 
-      - name: audit
-        run: npm audit
-
       - name: Unit tests
         run: echo "Passed!"
+
+    defaults:
+      run: 
+        working-directory: ./lambda_2
+
+    steps:
+      - name: Listing directories
+        run: ls
