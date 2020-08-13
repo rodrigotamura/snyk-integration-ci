@@ -5,9 +5,6 @@ jobs:
   QG_WORKER_COMMAND_CREATOR:
     runs-on: ubuntu-latest
     name: Cron - Running Audit
-    defaults:
-      run:
-        working-directory: ./lambda_1
 
     steps:
       - name: Checkout
@@ -21,15 +18,19 @@ jobs:
           node-version: 12
 
       - name: Npm Install
+        working-directory: ./lambda_1
         run: pwd && ls && npm install
 
-      - name: Unit tests
-        run: echo "Passed!"
-
-    defaults:
-      run: 
-        working-directory: ./lambda_2
-
-    steps:
-      - name: Listing directories
+      - name: Listing Lambda 1
         run: ls
+
+      - name: Listing directories
+        working-directory: ./lambda_2
+        run: ls
+      
+      - name: Showing
+        run: npm run show
+
+      - name: Back to Lambda 1
+        working-directory: ./lambda_1
+        run: npm run show
